@@ -67,7 +67,8 @@ gulp.task('css-libs', () => {
       // 'node_modules/lightbox2/dist/css/lightbox.min.css',
       // 'node_modules/aos/dist/aos.css'
       'node_modules/slick-carousel/slick/slick.css',
-      'node_modules/slick-carousel/slick/slick-theme.css'
+      'node_modules/slick-carousel/slick/slick-theme.css',
+      'node_modules/jquery-ui-dist/jquery-ui.min.css'
   ])
     .pipe(gulp.dest('dist/css/libs/'))
     .pipe(concat('libs.css'))
@@ -83,7 +84,8 @@ gulp.task('js-libs', () => {
       // 'node_modules/lightbox2/dist/js/lightbox.min.js',
       // 'node_modules/aos/dist/aos.js',
       // 'node_modules/blazy/blazy.min.js',
-      'node_modules/slick-carousel/slick/slick.min.js'
+      'node_modules/slick-carousel/slick/slick.min.js',
+			'node_modules/jquery-ui-dist/jquery-ui.min.js'
     ])
     .pipe(gulp.dest('dist/js/libs/'))
     .pipe(concat('libs.js'))

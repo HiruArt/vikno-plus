@@ -50,6 +50,12 @@ $(document).ready(function(){
 	$('.nav__side-menu-2-bar-link').click(function(e){
 		$(this).closest('.nav__side-menu-2').removeClass('active');
 	});
+
+	$(document).on('click', '.nav__search-btn-i', function () {
+		$('#page').hasClass('open') ?  null : $('#menu-btn').click();
+		$('.nav__side-menu-1, .nav__side-menu-2').removeClass('active');
+		$('input.search-form__input').focus();
+	});
 	/*menu function end*/
 
 
@@ -68,16 +74,81 @@ $(document).ready(function(){
 		dots: false,
 		arrows: false,
 		fade: true,
-		asNavFor: '#our-products-slider-menu'
+		asNavFor: '#our-products-slider-menu',
+		swipe: false
 	});
 	$('#our-products-slider-menu').slick({
 		slidesToShow: 5,
 		slidesToScroll: 1,
 		asNavFor: '#our-products-slider',
 		dots: false,
-		focusOnSelect: true,
 		arrows: false,
-		vertical: true
+		vertical: true,
+		focusOnSelect: true,
+		centerMode: true,
+	});
+
+	$('#type-slider-big').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: false,
+		fade: true,
+		asNavFor: '#type-slider',
+		swipe: false
+	});
+	$('#type-slider').slick({
+		slidesToShow: 6,
+		slidesToScroll: 1,
+		asNavFor: '#type-slider-big',
+		dots: false,
+		arrows: true,
+		focusOnSelect: true,
+		infinite: false
+	});
+
+	$('#our-work-slider').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: true,
+		focusOnSelect: true,
+		infinite: true
+	});
+
+
+
+	$('#more-news-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: false,
+		fade: true,
+		asNavFor: '#last-news-slider',
+		swipe: false
+	});
+	$('#last-news-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		asNavFor: '#more-news-slider',
+		dots: true,
+		customPaging: function(slider, i) {
+			var thumb = $(slider.$slides[i]).data();
+			return '<a class="dot">'+ (i+1) +'/'+ slider.$slides.length + '</a>';
+		},
+		arrows: true,
+		focusOnSelect: true,
+	});
+
+
+	$( "#sity" ).selectmenu();
+
+	$('.site-input input').change(function(e){
+		if($(this).val().length !== 0){
+			$(this).siblings('label').addClass('show');
+		} else {
+			$(this).siblings('label').removeClass('show');
+		}
 	});
 
 });
