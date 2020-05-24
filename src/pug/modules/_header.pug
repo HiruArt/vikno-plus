@@ -17,24 +17,24 @@ header
 			.header__nav
 				.nav
 					.nav__inner
-						a(href="javascript:void(0);").nav__menu-btn#menu-btn
+						a(href="javascript:void(0);" data-side-menu-id="0").nav__menu-btn#menu-btn
 							span.nav__menu-btn--hide.active
 							span.nav__menu-btn--show
 						ul.nav__menu
 							li.nav__menu-item
-								a(href="#").nav__menu-link ПРОДУКЦІЯ
+								a(href="javascript:void(0)" data-side-menu-id="0").nav__menu-link.parent ПРОДУКЦІЯ
 							li.nav__menu-item
-								a(href="#").nav__menu-link ДЕ КУПИТИ
+								a(href="javascript:void(0)" data-modal-class="wtb").nav__menu-link ДЕ КУПИТИ
 							li.nav__menu-item
-								a(href="#").nav__menu-link ПРО КОМПАНІЮ
+								a(href="javascript:void(0)" data-side-menu-id="about").nav__menu-link.parent ПРО КОМПАНІЮ
 							li.nav__menu-item
-								a(href="#").nav__menu-link ФРАНЧАЙЗИНГ
+								a(href="javascript:void(0)" data-side-menu-id="4").nav__menu-link.parent ФРАНЧАЙЗИНГ
 							li.nav__menu-item
-								a(href="#").nav__menu-link НОВИНИ
+								a(href="#" data-side-menu-id="5").nav__menu-link НОВИНИ
 							li.nav__menu-item.nav__menu-item--right
-								a(href="#").nav__menu-link Представники
+								a(href="#" data-side-menu-id="6").nav__menu-link Представники
 							li.nav__menu-item
-								a(href="javascript:void(0);").nav__menu-link  Консультація
+								a(href="javascript:void(0);" data-modal-class="advice").nav__menu-link  Консультація
 
 						.nav__search-btn
 							a(href="javascript:void(0);").nav__search-btn-i
@@ -44,8 +44,8 @@ header
 						.nav__side-menu-bar-search.search-form
 							form(action="#").search-form__form
 								button(type="submit").search-form__btn
-								input(placeholder="Search" type="text").search-form__input
-					.nav__side-menu-list
+								input(placeholder="Пошук" type="text").search-form__input
+					.nav__side-menu-list(data-side-menu="0")
 						.nav__side-menu-item
 							a(href="#").nav__side-menu-link.parent
 								.nav__side-menu-ico
@@ -115,20 +115,63 @@ header
 									img(src="./img/Rectangle23.png" alt="ico")
 								span Додатково
 
-						.nav__side-bottom
-							.nav__side-bottom-list
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Про компанiю
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Де купити
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Франчайзинг
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Нашi роботи
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Контакти
-								.nav__side-bottom-item
-									a(href="#").nav__side-bottom-link Новини
+						.nav__side-menu-item.nav__item-desktop-hide(data-side-menu="about")
+							a(href="#").nav__side-menu-link.parent
+								span про компанію
+							.nav__side-menu-1
+								.nav__side-menu-1-bar
+									a(href="javascript:void(0);").nav__side-menu-1-bar-link Про компанію
+								.nav__side-menu-1-list
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span  Контакти
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span  Чому ВікнаПлюс?
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span  Наші роботи
+
+
+						.nav__side-menu-item.nav__item-desktop-hide(data-side-menu="4")
+							a(href="#").nav__side-menu-link.parent
+								span Франчайзинг
+							.nav__side-menu-1
+								.nav__side-menu-1-bar
+									a(href="javascript:void(0);").nav__side-menu-1-bar-link Франчайзинг
+								.nav__side-menu-1-list
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span  Франчайзинг 1
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span  Франчайзинг 1
+									.nav__side-menu-1-item
+										a(href="javascript:void(0);").nav__side-menu-1-link
+											span Франчайзинг 2
+
+						.nav__side-menu-item.nav__item-desktop-hide
+							a(href="javascript:void(0)" data-modal-class="wtb").nav__side-menu-link
+								span ДЕ КУПИТИ
+						.nav__side-menu-item.nav__item-desktop-hide
+							a(href="javascript:void(0)" data-modal-class="advice").nav__side-menu-link
+								span Консультація
+
+
+						//.nav__side-bottom
+						//	.nav__side-bottom-list
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Про компанiю
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Де купити
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Франчайзинг
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Нашi роботи
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Контакти
+						//		.nav__side-bottom-item
+						//			a(href="#").nav__side-bottom-link Новини
 
 
 

@@ -46,7 +46,9 @@
     "jquery-ui": "^1.12.1",
     "jquery-ui-dist": "^1.12.1",
     "lightbox2": "^2.11.1",
+    "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swiper": "^5.4.1"
   }
 }
