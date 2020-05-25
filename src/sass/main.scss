@@ -10,7 +10,7 @@ $lightgrey: #d1d1d1;
 }
 
 body{
-  overflow-x: hidden;
+
 }
 
 a{
@@ -128,6 +128,15 @@ input, textarea, button{
   @include for-1600{
     padding: 50px 0;
   }
+
+  @include for-1200{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @include for-768{
+    padding: 20px 0;
+  }
 }
 
 .search-form{
@@ -182,6 +191,10 @@ input, textarea, button{
   &__inner {
     display: flex;
     justify-content: space-between;
+
+    @include for-1100{
+      flex-direction: column;
+    }
   }
 
   &__item{
@@ -192,6 +205,10 @@ input, textarea, button{
       max-width: 600px;
       padding: 0 15px;
       box-sizing: border-box;
+    }
+
+    @include for-1100{
+      max-width: 100%;
     }
   }
 
@@ -370,33 +387,7 @@ input, textarea, button{
   }
 }
 
-.fade-in {
-  animation: fadeIn ease .15s;
-}
-
-.fade-out {
-  animation: fadeOut ease .15s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-  /*custom pieces end*/
+/*custom pieces end*/
 
 /*menu classess*/
 
@@ -405,16 +396,56 @@ input, textarea, button{
 }
 
 #page{
-  left: 0;
+  //left: 0;
   overflow: hidden;
 }
 
 #page.open{
-  left: 390px;
+  //left: 390px;
+
+  @include for-1100{
+    //left: 300px;
+  }
 }
 
+.page__content, footer{
+  position: relative;
+  transition: 0.4s ease;
+  transform: translateX(0);
+}
+
+#page.open .page__content,
+#page.open footer{
+  transform: translateX(390px);
+  position: relative;
+
+  @include for-1100{
+    transform: translateX(300px);
+  }
+}
+
+#page.open .nav__search-btn{
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+@include for-1100 {
+  #page.open .header__logo--mobile,
+  #page.open .header__head {
+    transform: translateX(300px);
+  }
+}
+
+
+
+
 #page.open .nav__inner{
-  margin-left: 390px;
+  transform: translateX(390px);
+
+  @include for-1100{
+    transform: translateX(300px);
+  }
 }
 
 #page.open .nav__side-menu{
@@ -488,18 +519,27 @@ input, textarea, button{
     box-sizing: border-box;
 
     @include for-1100{
-      width: 50%;
       border-bottom: 0;
       background: transparent;
       padding: 0;
+      transition: .4s ease;
     }
   }
 
   &__logo{
 
     @include for-1100{
-      transform: translateX(-50%);
       padding: 0;
+      display: none;
+    }
+
+    &--mobile{
+      display: none;
+      transition: .4s ease;
+
+      @include for-1100{
+        display: flex;
+      }
     }
   }
 
@@ -602,6 +642,10 @@ input, textarea, button{
     background-color: rgba(255,255,255,0.77);
     transition: 0.4s ease;
 
+    @include for-1600{
+      padding: 0 15px;
+    }
+
     @include for-1100{
       background-color: transparent;
       padding: 0 15px;
@@ -688,6 +732,11 @@ input, textarea, button{
   &__menu-link{
     font-size: 18px;
     transition: .3s all;
+    white-space: nowrap;
+
+    @include for-1600{
+      font-size: 14px;
+    }
 
     &:hover{
       color: #777;
@@ -695,6 +744,7 @@ input, textarea, button{
   }
 
   &__search-btn{
+    transition: .3s all;
 
     @include for-1100{
       display: none;
@@ -715,6 +765,11 @@ input, textarea, button{
     position: absolute;
     top: 0;
     transition: 0.4s ease;
+
+    @include for-1100{
+      width: 300px;
+      left: -300px;
+    }
   }
 
   &__side-menu-bar{
@@ -738,6 +793,10 @@ input, textarea, button{
     align-items: center;
     padding: 0 40px 0 50px;
     box-sizing: border-box;
+
+    @include for-1100{
+      padding: 0 15px 0 15px;
+    }
   }
 
   &__side-menu-list{
@@ -767,6 +826,10 @@ input, textarea, button{
     width: 100%;
     text-transform: uppercase;
     transition: .3s all;
+
+    @include for-1100{
+      padding: 9px 15px 8px 15px;
+    }
 
     span {
       transition: .3s all;
@@ -802,6 +865,11 @@ input, textarea, button{
     position: absolute;
     top: 0;
     transition: 0.4s ease;
+
+    @include for-1100{
+      width: 300px;
+      left: -300px;
+    }
   }
 
   &__side-menu-1-bar{
@@ -818,6 +886,9 @@ input, textarea, button{
 
     @include for-1100{
       height: 65px;
+      padding: 9px 15px 8px 15px;
+      box-sizing: border-box;
+      justify-content: flex-start;
     }
   }
 
@@ -825,6 +896,10 @@ input, textarea, button{
     text-transform: uppercase;
     text-align: center;
     display: flex;
+
+    @include for-1100 {
+      padding-left: 15px;
+    }
 
     &:before{
       content: '';
@@ -876,6 +951,12 @@ input, textarea, button{
     text-transform: uppercase;
     transition: .3s all;
 
+    @include for-1100{
+      padding: 9px 15px 8px 15px;
+      flex-direction: row;
+      align-items: center;
+    }
+
     span{
       padding-top: 10px;
       transition: .3s all;
@@ -898,6 +979,10 @@ input, textarea, button{
     width: 175px;
     display: flex;
 
+    @include for-1100{
+      display: none;
+    }
+
     img{
       height: 100%;
       width: 100%;
@@ -911,6 +996,11 @@ input, textarea, button{
     position: absolute;
     top: 0;
     transition: 0.4s ease;
+
+    @include for-1100{
+      width: 300px;
+      left: -300px;
+    }
   }
 
   &__side-menu-2-bar{
@@ -926,6 +1016,8 @@ input, textarea, button{
 
     @include for-1100{
       height: 65px;
+      padding: 9px 15px 8px 15px;
+      box-sizing: border-box;
     }
   }
 
@@ -935,6 +1027,10 @@ input, textarea, button{
     text-transform: uppercase;
     text-align: center;
     display: flex;
+
+    @include for-1100{
+      padding-left: 15px;
+    }
 
     &:before{
       content: '';
@@ -1003,19 +1099,39 @@ input, textarea, button{
 
     .nav__side-menu-1-bar{
       justify-content: flex-start;
+
+      @include for-1100{
+        height: 65px;
+        padding: 9px 15px 8px 15px;
+        box-sizing: border-box;
+      }
     }
 
     .nav__side-menu-1-bar-link{
       padding-left: 65px;
+
+      @include for-1100{
+        padding-left: 15px;
+      }
     }
 
     .nav__side-menu-1-link {
       flex-direction: row;
       padding: 11px 30px 10px 50px;
 
+      @include for-1100{
+        padding: 9px 15px 8px 15px;
+        box-sizing: border-box;
+      }
+
+
       span {
         padding-top: 0;
         line-height: 140%;
+
+        @include for-1100{
+          line-height: 46px;
+        }
       }
     }
   }
@@ -1065,6 +1181,10 @@ input, textarea, button{
     display: flex;
     align-items: center;
     position: relative;
+
+    @include for-1100{
+      height: calc(100vh - 65px);
+    }
   }
 
   &-img{
@@ -1089,19 +1209,33 @@ input, textarea, button{
     z-index: 2;
     max-width: 600px;
     height: 100%;
+
+    @include for-1100{
+      max-width: 100%;
+    }
   }
 
   &__title{
     font-size: 92px;
     color: white;
     opacity: .2;
+
+    @include for-1100{
+      font-size: 62px;
+      text-align: center;
+    }
   }
 
   &__subtitle{
     color: white;
     font-size: 40px;
     font-weight: 500;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
+
+    @include for-1100{
+      font-size: 20px;
+      text-align: center;
+    }
   }
 
   &__desc{
@@ -1109,16 +1243,32 @@ input, textarea, button{
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 35px;
+
+    @include for-1100{
+      font-size: 18px;
+      text-align: center;
+    }
   }
 
   &__txt{
     color: white;
     font-size: 20px;
     margin-bottom: 75px;
+
+    @include for-1100{
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
   }
 
   &__btn{
 
+    @include for-1100{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
   }
 
   &__btn-i{
@@ -1134,11 +1284,21 @@ input, textarea, button{
       bottom: 25px;
       left: 25px;
     }
+
+    @include for-1100{
+      left: 0;
+      bottom: 0;
+      position: relative;
+    }
   }
 
   &__partner-list{
     display: flex;
     margin: 0 -15px;
+
+    @include for-1100{
+      justify-content: center;
+    }
   }
 
   &__partner-item{
@@ -1165,6 +1325,12 @@ input, textarea, button{
     bottom: 50px;
     transform: rotate(90deg);
     right: calc(-50% + 50px);
+
+    @include for-1100{
+      right: auto;
+      transform: rotate(0);
+      bottom: 15px;
+    }
 
     li {
       width: 10px;
@@ -1196,8 +1362,22 @@ input, textarea, button{
 
 .our-products{
 
+
+  &__section{
+
+    @include for-1100 {
+      .site-title-wrap {
+        display: none;
+      }
+    }
+  }
+
   &__inner{
     padding-bottom: 50px;
+
+    @include for-1100{
+      padding-bottom: 0;
+    }
   }
 
   &__content{
@@ -1206,11 +1386,21 @@ input, textarea, button{
     padding-bottom: 70px;
     margin: 0 -15px;
     max-width: 100%;
+
+    @include for-1100{
+      flex-direction: column-reverse;
+      margin: 0;
+    }
   }
 
   &__slide{
     width: 75%;
     padding: 0 15px;
+
+    @include for-1100{
+      width: 100%;
+      padding: 0;
+    }
   }
 
   &__slide-content{
@@ -1229,6 +1419,10 @@ input, textarea, button{
       padding-left: 10%;
     }
 
+    @include for-1100{
+      padding: 0 15px;
+      min-height: 540px;
+    }
 
     //@include for-1900{
     //  padding-left: 20%;
@@ -1241,10 +1435,18 @@ input, textarea, button{
     color: white;
     margin-bottom: 80px;
     line-height: 30px;
+
+    @include for-1100{
+      max-width: 100%;
+      text-align: center;
+    }
   }
 
   &__slide-btn{
-
+    @include for-1100{
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__slide-btn-i{
@@ -1260,10 +1462,16 @@ input, textarea, button{
     @include for-1600{
       padding: 0 15px;
     }
+
+    @include for-1100{
+      padding: 0;
+      width: 100%;
+      margin-bottom: 15px;
+    }
   }
 
-  &__menu-item-list{
-    max-width: 100%;
+  &__menu-list{
+    width: 100%;
   }
 
   &__menu-item{
@@ -1272,6 +1480,11 @@ input, textarea, button{
 
     &:last-child{
       margin-bottom: 0;
+    }
+
+    @include for-1100{
+      margin-bottom: 0;
+      padding: 0 15px;
     }
   }
 
@@ -1284,6 +1497,14 @@ input, textarea, button{
     width: fit-content;
     transition: .3s all;
     outline: none!important;
+
+    @include for-1100{
+      width: 100%;
+      justify-content: center;
+      font-size: 12px;
+      height: 40px;
+    }
+
 
     &:before{
       content: '';
@@ -1302,6 +1523,10 @@ input, textarea, button{
       border-radius: 50%;
       margin: 0 14px;
       display: inline-flex;
+
+      @include for-1100{
+        margin: 0 3px;
+      }
     }
 
     &:hover{
@@ -1319,10 +1544,15 @@ input, textarea, button{
 
   &__icons-list{
     display: flex;
+    max-width: 1200px;
     margin: 0 -15px;
-    max-width: 1170px;
     width: 100%;
     justify-content: space-between;
+
+    @include for-1100{
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
   }
 
   &__icons-item{
@@ -1330,6 +1560,12 @@ input, textarea, button{
     padding: 0 15px;
     align-items: center;
 
+    @include for-1100{
+      width: 50%;
+      box-sizing: border-box;
+      flex-direction: column;
+      margin-bottom: 25px;
+    }
   }
 
   &__icons-img{
@@ -1341,6 +1577,16 @@ input, textarea, button{
     width: 100%;
     padding-left: 20px;
     font-size: 20px;
+
+    @include for-1100{
+      padding-left: 0;
+      text-align: center;
+      padding-top: 15px;
+
+      & br{
+        display: none;
+      }
+    }
   }
 
 }
@@ -1367,20 +1613,46 @@ input, textarea, button{
 
   &__content{
     padding: 0 50px 35px;
+
+    @include for-1100{
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &__list{
-    margin: 0 -2px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__item{
     width: 25%;
-    padding: 0 2px;
+    padding: 0 1px;
+    box-sizing: border-box;
+    margin-bottom: 1px;
+
+    @include for-1100{
+      width: 50%;
+    }
+
+    @include for-550{
+      width: 100%;
+    }
   }
 
   &__item-content{
+
+    @include for-1100{
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+
+    @include for-550{
+      height: 330px;
+    }
+
 
     &:hover{
 
@@ -1390,6 +1662,10 @@ input, textarea, button{
 
       .window__name{
         color: $darkgrey;
+
+        @include for-1100{
+          color: white;
+        }
 
         &:before{
           background: $green;
@@ -1412,6 +1688,10 @@ input, textarea, button{
       width: 100%;
       height: 100%;
       transition: .3s all;
+
+      @include for-1100{
+        background-color: $darkgrey;
+      }
     }
   }
 
@@ -1430,6 +1710,14 @@ input, textarea, button{
     color: #ababab;
     transition: 0.3s all;
 
+    @include for-1100{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+
     &:before{
       content: '';
       position: absolute;
@@ -1440,6 +1728,10 @@ input, textarea, button{
       height: 3px;
       background: #959595;
       transition: 0.3s all;
+
+      @include for-1100{
+        background: $green;
+      }
     }
   }
 
@@ -1450,6 +1742,10 @@ input, textarea, button{
   display: flex;
   justify-content: flex-end;
   background: $darkgrey;
+
+  @include for-1100{
+    width: 100%;
+  }
 
 
   &__inner{
@@ -1471,6 +1767,10 @@ input, textarea, button{
 
     @include for-1600{
       padding: 80px 0 50px 45px;
+    }
+
+    @include for-768{
+      padding: 15px 0 30px;
     }
   }
 
@@ -1504,9 +1804,15 @@ input, textarea, button{
     flex-direction: column;
     padding: 30px 0 30px 50px;
     display: none;
+    box-sizing: border-box;
 
     @include for-1600{
      padding: 30px 0 30px 30px;
+    }
+
+    @include for-768{
+      padding: 15px 0 60px;
+      position: relative;
     }
 
     &.active{
@@ -1519,6 +1825,11 @@ input, textarea, button{
 
       @include for-1600{
         padding: 30px 15px 30px 15px;
+      }
+
+      @include for-768{
+        background: transparent;
+        padding: 15px 0 60px;
       }
     }
   }
@@ -1549,17 +1860,36 @@ input, textarea, button{
 
   &__office-link{
     color: white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+    @include for-768{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $lightgrey;
+    }
   }
 
   &__office-info{
     padding: 35px 35px 0 35px;
     box-sizing: border-box;
+
+    @include for-768{
+      padding: 35px 0 0 0;
+    }
   }
 
   &__office-address{
     font-size: 20px;
     color: white;
     margin-bottom: 35px;
+
+    @include for-768{
+      font-weight: 500;
+    }
   }
 
   &__office-phone{
@@ -1571,6 +1901,10 @@ input, textarea, button{
 .map-block {
   width: 50%;
 
+  @include for-1100{
+    width: 100%;
+  }
+
   &__inner{
     display: flex;
     width: 100%;
@@ -1580,6 +1914,8 @@ input, textarea, button{
   iframe{
     width: 100%;
     height: 100%;
+
+    min-height: 460px;
   }
 }
 
@@ -1591,10 +1927,20 @@ input, textarea, button{
   display: flex;
   justify-content: flex-end;
 
+  @include for-1100{
+    width: 100%;
+  }
+
   &__inner{
     display: flex;
     align-items: center;
     height: 100%;
+    box-sizing: border-box;
+
+    @include for-1100{
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
   }
 
   &__text{
@@ -1618,6 +1964,11 @@ input, textarea, button{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include for-1100{
+    width: 100%;
+  }
+
 
   &.request-block--bg2{
     background-image: url("../img/home/request-form02-bg.png");
@@ -1648,6 +1999,10 @@ input, textarea, button{
     flex-direction: column;
     align-items: center;
     margin-bottom: 70px;
+
+    @include for-1100{
+      margin-bottom: 0;
+    }
   }
 
   &__title-main{
@@ -1687,6 +2042,10 @@ input, textarea, button{
   display: flex;
   justify-content: flex-end;
 
+  @include for-1100{
+    width: 100%;
+  }
+
   &__inner{
     padding-top: 230px;
     padding-right: 80px;
@@ -1697,6 +2056,14 @@ input, textarea, button{
       padding-bottom: 100px;
       padding-right: 30px;
     }
+
+    @include for-1100{
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-right: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 
   &__slider-wrap{
@@ -1706,6 +2073,10 @@ input, textarea, button{
   &__slider{
     margin-bottom: 120px;
     padding-top: 30px;
+
+    @include for-1100{
+      margin-bottom: 50px;
+    }
   }
 
   &__item{
@@ -1769,10 +2140,18 @@ input, textarea, button{
     font-size: 22px;
     margin-bottom: 55px;
     max-width: 530px;
+
+    @include for-1100{
+      max-width: 100%;
+      text-align: center;
+    }
   }
 
   &__btn{
-
+    @include for-1100{
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__btn-i{
@@ -1842,6 +2221,10 @@ input, textarea, button{
 .type-block-big-slider{
   width: 50%;
   position: relative;
+
+  @include for-1100{
+    display: none;
+  }
 
   &__inner{
     height: 100%;
@@ -2409,6 +2792,8 @@ input, textarea, button{
     padding: 0 15px;
     padding-top: 55px;
     padding-bottom: 45px;
+    display: flex;
+    justify-content: center;
   }
 
   &__content{

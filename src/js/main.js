@@ -107,7 +107,47 @@ $(document).ready(function(){
 		arrows: false,
 		vertical: true,
 		focusOnSelect: true,
-		centerMode: true,
+		infinite: true,
+		responsive: [
+
+			{
+				breakpoint: 1120,
+				settings: {
+					slidesToShow: 5,
+					infinite: true,
+					focusOnSelect: true,
+					vertical: false,
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 4,
+					vertical: false,
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+					vertical: false,
+				}
+			},
+			{
+				breakpoint: 550,
+				settings: {
+					slidesToShow: 2,
+					vertical: false,
+				}
+			},
+			{
+				breakpoint: 350,
+				settings: {
+					slidesToShow: 1,
+					vertical: false,
+				}
+			},
+		]
 	});
 
 	$('#our-work-slider').slick({
