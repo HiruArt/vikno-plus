@@ -2945,6 +2945,32 @@ input, textarea, button{
 
 }
 
+.site-top{
+
+  &__inner{
+    height: calc(100vh - 90px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+  }
+
+  &__txt{
+    display: block;
+    max-width: 470px;
+    color: $lightgrey;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+}
+
 .footer{
   display: flex;
   justify-content: center;
@@ -3092,7 +3118,10 @@ input, textarea, button{
 
     img{
       width: 100%;
-      margin-bottom: 20px;
+
+      @include for-768 {
+        margin-bottom: 20px;
+      }
     }
   }
 
