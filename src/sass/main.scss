@@ -48,7 +48,7 @@ input, textarea, button{
   &__more-btn{
     position: absolute;
     height: 20px;
-    width: 40px;
+    width: 25px;
     bottom: 7px;
     right: 0;
     background-color: white;
@@ -83,6 +83,11 @@ input, textarea, button{
     font-size: 28px;
   }
 
+  @include for-1100{
+    padding: 6px 10px 7px 25px;
+    font-size: 20px;
+  }
+
   &:before{
     content: '';
     left: 0;
@@ -103,6 +108,7 @@ input, textarea, button{
   font-size: 35px;
   padding: 9px 20px 30px 20px;
   position: relative;
+  text-align: center;
 
   &:before{
     content: '';
@@ -135,7 +141,8 @@ input, textarea, button{
   }
 
   @include for-768{
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -2058,6 +2065,23 @@ input, textarea, button{
     width: 100%;
   }
 
+  &__img-mobile{
+    display: none;
+
+    @include for-1100{
+      display: flex;
+      height: 500px;
+      margin-bottom: 30px;
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+
+      & .type-block-big-slider__item{
+        width: 100%;
+      }
+    }
+  }
+
   &__inner{
     padding-top: 230px;
     padding-right: 80px;
@@ -2071,7 +2095,7 @@ input, textarea, button{
 
     @include for-1100{
       padding-top: 50px;
-      padding-bottom: 50px;
+      padding-bottom: 0;
       padding-right: 0;
       max-width: 600px;
       margin: 0 auto;
@@ -2087,7 +2111,7 @@ input, textarea, button{
     padding-top: 30px;
 
     @include for-1100{
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
   }
 
@@ -2145,6 +2169,12 @@ input, textarea, button{
       padding-top: 25px;;
       text-align: center;
     }
+
+    @include for-1100{
+      font-size: 14px;
+      padding-top: 10px;
+    }
+
   }
 
   &__txt{
@@ -2194,6 +2224,10 @@ input, textarea, button{
     right: 0;
     width: 20px;
     height: 20px;
+
+    @include for-1100{
+      top: 35px;
+    }
   }
 
   .swiper-button-prev,
@@ -2277,6 +2311,14 @@ input, textarea, button{
 
   &__item{
     height: 910px;
+
+    @include for-1600{
+      height: 768px;
+    }
+
+    @include for-1100{
+      height: 570px;
+    }
   }
 
   &__item-content{
@@ -2351,6 +2393,16 @@ input, textarea, button{
     width: 20px;
     height: 20px;
 
+    @include for-992{
+      top: 50%;
+      z-index: 20;
+      right: 20px;
+      height: 50px;
+      width: 50px;
+      background-color: rgba(209, 209, 209, 0.67);
+      border-radius: 50%;
+    }
+
     &:before{
       content:'';
       background: url("../img/ico/arrow-right.svg") center no-repeat;
@@ -2360,11 +2412,20 @@ input, textarea, button{
       position: absolute;
       left: 0;
       top: 0;
+
+      @include for-992{
+        background-size: 8px;
+      }
     }
 
     &.slick-prev{
       left: auto;
       right: 90px;
+
+      @include for-992{
+        left: 20px;
+        right: auto;
+      }
     }
 
     &.slick-next{
@@ -2382,12 +2443,20 @@ input, textarea, button{
   display: flex;
   justify-content: flex-end;
 
+  @include for-1100{
+    width: 100%;
+  }
+
   &__inner{
     padding: 80px 0 90px;
     //height: 1085px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+
+    @include for-1100{
+      padding: 35px 0 50px;
+    }
   }
 
   &__content{
@@ -2397,12 +2466,22 @@ input, textarea, button{
     justify-content: space-between;
     height: 100%;
     box-sizing: border-box;
+
+    @include for-1100{
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
   }
 
   &__slider{
     max-width: 540px;
     width: 100%;
     margin: 0 -15px;
+
+    @include for-1100{
+      max-width: 100%;
+      margin: 0;
+    }
   }
 
   &__item{
@@ -2445,6 +2524,10 @@ input, textarea, button{
     margin-bottom: 40px;
     transition: .3s all;
 
+    @include for-1100{
+      margin-bottom: 20px;
+    }
+
     &:hover{
       color: $green;
     }
@@ -2452,6 +2535,20 @@ input, textarea, button{
 
   &__img{
     display: none;
+
+    @include for-1100{
+      display: flex;
+      width: 100%;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-bottom: 15px;
+    }
+
+    @include for-550{
+      height: 220px;
+    }
   }
 
   &__text{
@@ -2549,6 +2646,9 @@ input, textarea, button{
   &__bottom-block{
     position: relative;
 
+    @include for-1100{
+      display: none;
+    }
 
     &:before{
       content: '';
@@ -2568,6 +2668,22 @@ input, textarea, button{
     padding-bottom: 90px;
   }
 
+  &__more-mobile{
+    display: none;
+
+    @include for-1100{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__more-link{
+    color: white;
+    border: 2px solid $lightgrey;
+    box-sizing: border-box;
+    padding: 8px 15px 11px 16px;
+  }
+
 }
 
 #last-news-slider{
@@ -2582,6 +2698,12 @@ input, textarea, button{
     width: 20px;
     height: 20px;
 
+    @include for-1100{
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+
     &:before{
       content:'';
       background: url("../img/ico/arrow-w.svg") center no-repeat;
@@ -2595,10 +2717,20 @@ input, textarea, button{
 
     &.slick-prev{
       left: 15px;
+
+      @include for-1100{
+        left: calc(50% - 50px);
+        transform: translateX(-50%);
+      }
     }
 
     &.slick-next{
       left: 115px;
+
+      @include for-1100{
+        left: calc(50% + 50px);
+        transform: translateX(-50%);
+      }
 
       &:before{
         transform: rotate(180deg);
@@ -2613,6 +2745,12 @@ input, textarea, button{
     left: 60px;
     right: auto;
     width: fit-content;
+
+    @include for-1100{
+      left: calc(50%);
+      transform: translateX(-50%);
+      bottom: -60px;
+    }
 
     li{
       display: none;
@@ -2632,6 +2770,10 @@ input, textarea, button{
 
 .more-news{
   width: 50%;
+
+  @include for-1100{
+    display: none;
+  }
 
   &__inner{
     padding-top: 80px;
@@ -2705,6 +2847,11 @@ input, textarea, button{
   display: flex;
   justify-content: flex-end;
 
+  @include for-1100{
+    width: 100%;
+    justify-content: center;
+  }
+
   &__inner{
     padding: 80px 0 105px 0;
 
@@ -2737,10 +2884,24 @@ input, textarea, button{
        margin-bottom: 40px;
        left: -15px;
      }
+
+     @include for-1100{
+       font-size: 18px;
+       left: 0;
+       margin-bottom: 30px;
+     }
   }
 
   &__txt{
     max-height: 455px;
+
+    @include for-1100{
+      max-height: 365px;
+    }
+
+    @include for-550{
+      max-height: 244px;
+    }
   }
 
   p{
@@ -2751,6 +2912,11 @@ input, textarea, button{
     box-sizing: border-box;
     margin-top: 0;
     margin-bottom: 0;
+
+    @include for-1100{
+      font-size: 16px;
+      font-weight: 500;
+    }
   }
 
   &__more-btn{
@@ -2812,14 +2978,38 @@ input, textarea, button{
     display: flex;
     margin: 0 -15px;
     width: 100%;
+
+    @include for-768{
+      flex-direction: column;
+    }
   }
 
   &__column{
     width: 20%;
     padding: 0 15px;
+    box-sizing: border-box;
 
     &--width{
       width: 40%;
+      @include for-768{
+        width: 100%;
+      }
+    }
+
+    @include for-768{
+      width: 100%;
+
+
+      &.active{
+
+        .footer__subtitle:after{
+          background-image: url('../img/ico/minus-solid.svg');
+        }
+
+        .footer__list{
+          max-height: 1000px;
+        }
+      }
     }
   }
 
@@ -2829,11 +3019,41 @@ input, textarea, button{
     font-size: 20px;
     margin-bottom: 55px;
     display: flex;
+    position: relative;
+    width: 100%;
+
+    @include for-768{
+      margin-bottom: 15px;
+      cursor: pointer;
+      color: white;
+
+      &:after{
+        content: '';
+        width: 15px;
+        height: 15px;
+        background-image: url('../img/ico/plus-solid.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        transition: .3s all;
+      }
+    }
   }
 
   &__list{
     display: flex;
     flex-direction: column;
+
+    @include for-768{
+      padding-left: 20px;
+      max-height: 0;
+      transition: .3s all;
+      overflow: hidden;
+    }
   }
 
   &__link{
@@ -2842,6 +3062,10 @@ input, textarea, button{
     font-weight: 500;
     margin-bottom: 20px;
     transition: .3s all;
+
+    @include for-768{
+     font-weight: 300;
+    }
 
     &:hover{
       color: $green;
@@ -2861,6 +3085,11 @@ input, textarea, button{
     width: 100%;
     padding: 20px 15px;
     align-items: flex-end;
+
+    @include for-768{
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__bottom-logo{
@@ -2875,6 +3104,7 @@ input, textarea, button{
 
     img{
       width: 100%;
+      margin-bottom: 20px;
     }
   }
 
@@ -2883,6 +3113,11 @@ input, textarea, button{
     font-size: 14px;
     font-weight: 300;
     padding-left: 75px;
+
+    @include for-768{
+      padding-left: 0;
+      text-align: center;
+    }
   }
 
 }
@@ -3128,6 +3363,10 @@ input, textarea, button{
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
+
+    @include for-1100{
+      padding-top: 90px;
+    }
   }
 
   &__inner{
@@ -3191,6 +3430,7 @@ input, textarea, button{
   &__form{
     padding: 5px 15px;
     background: $lightgrey;
+    box-sizing: border-box;
   }
 
   &__btn{
@@ -3251,6 +3491,11 @@ input, textarea, button{
     color: white;
     text-transform: uppercase;
 
+    @include for-550{
+      padding: 13px 10px 15px;
+      font-size: 14px;
+    }
+
     &:before{
       content: '';
       position: absolute;
@@ -3291,6 +3536,10 @@ input, textarea, button{
     ul{
       column-count: 3;
       padding: 20px 0;
+
+      @include for-550{
+        column-count: 2;
+      }
 
       li{
 
