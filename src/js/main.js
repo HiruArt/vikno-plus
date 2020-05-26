@@ -292,6 +292,23 @@ $(document).ready(function(){
 	});
 
 
+	var mySwiper = new Swiper ('#winow-slider', {
+		slidesPerView: 1,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		breakpoints: {
+			550: {
+				slidesPerView: 1,
+			},
+			768: {
+				slidesPerView: 6,
+			},
+		}
+	});
+
+
 	$('.type-block__item:eq(0)').addClass('active');
 	var firstTypeImg = $('#type-slider .type-block__item.active').attr('data-type-img');
 	$('.type-block-big-slider__img').css('background-image', 'url(' + firstTypeImg + ')');
@@ -359,7 +376,7 @@ $(document).ready(function(){
 	/*address and map*/
 
 	$( "#sity" ).selectmenu();
-	
+
 	function choiceAddress() {
 		var sity = $("#sity option:selected").val();
 		$('.address-block__office-item').removeClass('active');
@@ -381,6 +398,45 @@ $(document).ready(function(){
 			$('.footer__column').removeClass('active');
 			$(this).closest('.footer__column').addClass('active');
 		}
+	});
+
+
+	$('.revolution-right__tab').click(function () {
+		$('.revolution-right__tab').removeClass('active');
+		$(this).addClass('active');
+
+		$('.revolution-right__content-i').removeClass('active');
+		$('.revolution-right__content-i').eq($(this).index()).addClass('active');
+
+
+
+	});
+
+	$('.window-slider__img').click(function () {
+		$('.window-slider__img').removeClass('active');
+		$(this).addClass('active');
+		console.log($(this).data('type-img'));
+		var img = $(this).data('type-img');
+		$('.window-color__img-i').css('background', 'url("' + img +'")');
+
+		var img2 = $(this).find('img').attr('src');
+		$('.window-slider__bottom').css('background', 'url("' + img2 +'")');
+	});
+
+	$('.window-popup__accord-title').click(function () {
+		$(this).parent().toggleClass('active');
+	});
+
+	var target = $('.revolution').length > 0 ? $('.revolution') : false;
+	var targetPos = target !== false ? target.offset().top : 0;
+	var winHeight = $(window).height();
+	var scrollToElem = targetPos - winHeight;
+	$(window).scroll(function(){
+		var winScrollTop = $(this).scrollTop();
+		if(winScrollTop > scrollToElem + 200){
+			document.getElementById('video-window').play();
+		}
+
 	});
 
 });
