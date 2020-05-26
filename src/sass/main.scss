@@ -31,6 +31,48 @@ input, textarea, button{
 
 
 /*custom pieces*/
+
+.pagination{
+  display: flex;
+  align-items: center;
+
+  &__link{
+    width: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s all;
+
+    &:hover{
+
+      .pagination__ico{
+        background-image: url("../img/ico/arrow.svg");
+      }
+    }
+
+    &:last-child{
+      transform: rotate(180deg);;
+    }
+  }
+
+  &__ico{
+    width: 21px;
+    height: 11px;
+    background-image: url("../img/ico/arrow 2.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: .3s all;
+  }
+
+  &__count{
+    color: $darkgrey;
+    line-height: 30px;
+  }
+
+}
+
 .seo-content{
   overflow: hidden;
   display: block;
@@ -109,6 +151,12 @@ input, textarea, button{
   padding: 9px 20px 30px 20px;
   position: relative;
   text-align: center;
+
+
+  @include for-1100{
+    font-size: 24px;
+    padding-bottom: 15px;
+  }
 
   &:before{
     content: '';
@@ -190,6 +238,10 @@ input, textarea, button{
 
   &--black{
     color: $darkgrey;
+  }
+
+  &--white{
+    border-color: white;
   }
 }
 
@@ -2511,7 +2563,7 @@ input, textarea, button{
       left: 0;
       width: 20px;
       height: 20px;
-      background: url("../img/ico/calendar.png") center no-repeat;
+      background: url("../img/ico/calendar.svg") center no-repeat;
       background-size: contain;
       display: flex;
     }
@@ -2979,9 +3031,1077 @@ input, textarea, button{
     text-align: center;
     font-size: 25px;
     font-weight: 500;
+
+    @include for-1100{
+      font-size: 18px;
+    }
   }
 
 }
+
+.news-block{
+
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+
+    @include for-1100{
+      flex-direction: column;
+    }
+  }
+
+  &__nav{
+    width: 25%;
+    background: #414141;
+
+    @include for-1100{
+      width: 100%;
+    }
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+    padding-top: 260px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+
+    @include for-1800{
+      padding-left: 40px;
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    @include for-1100{
+      padding: 15px 0;
+      flex-direction: row;
+      overflow-x: auto;
+      max-width: 100%;
+      width: max-content;
+      position: relative;
+    }
+  }
+
+  &__item{
+
+    @include for-1100 {
+      padding: 0 15px;
+    }
+  }
+
+  &__link{
+    font-size: 22px;
+    color: white;
+    opacity: .5;
+    transition: .3s all;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    padding: 25px 0;
+
+    @include for-1100{
+      font-size: 16px;
+      padding:  15px;
+      white-space: nowrap;
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: white;
+      opacity: .5;
+      transition: .3s all;
+    }
+
+    &.active{
+      opacity: 1;
+
+      &:after{
+        background: $green;
+        opacity: 1;
+      }
+    }
+
+    &:hover{
+      opacity: 1;
+
+      &:after{
+        background: $green;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content{
+    width: 75%;
+    padding: 75px 40px 0;
+    box-sizing: border-box;
+
+    @include for-1800{
+      padding: 50px 15px 0;
+    }
+
+    @include for-1100{
+      width: 100%;
+      padding: 30px 15px 0;
+    }
+  }
+
+  &__head{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 70px;
+    align-items: center;
+
+    @include for-1800{
+      padding-bottom: 25px;
+    }
+
+    @include for-768{
+      flex-direction: column;
+    }
+  }
+
+  &__head-title{
+
+    @include for-768{
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__head-pagin{
+
+  }
+
+}
+
+.news{
+
+  &__list {
+    margin: 0 -15px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  &__item{
+    width: 33.33333%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+
+    @include for-992{
+      width: 50%;
+    }
+
+    @include for-550{
+      width: 100%;
+    }
+  }
+
+  &__item-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__img{
+    height: 640px;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 40px;
+
+    @include for-1800{
+      height: 500px;
+    }
+
+    &:hover{
+      .news__img-link{
+        max-height: 100%;
+
+        span{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__img-i{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__img-link{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 0;
+    background: rgba(44, 44, 44, 0.75);
+    display: flex;
+    align-items: flex-end;
+    transition: .4s all;
+    overflow: hidden;
+
+    span{
+      color: white;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 30px;
+      padding: 30px;
+      box-sizing: border-box;
+      transition: .4s all;
+      opacity: 0;
+    }
+  }
+
+  &__bottom-date{
+
+  }
+
+  &__name{
+    color: $darkgrey;
+    line-height: 25px;
+    font-size: 18px;
+    margin-bottom: 35px;
+    display: flex;
+    height: 100%;
+
+    //transition: .3s all;
+    //&:hover{
+    //  color: $green;
+    //}
+  }
+
+  &__more-detail{
+
+  }
+
+  &__more-detail-i{
+    padding-right: 30px;
+
+    &:hover{
+
+      &:after {
+        background-image: url('../img/ico/dots-green.svg');
+      }
+    }
+  }
+}
+
+.news-item{
+  padding: 0 130px;
+  max-width: 900px;
+  width: 100%;
+
+  @include for-1800{
+    padding: 0 15px;
+  }
+
+  @include for-1100{
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  &__date{
+    position: relative;
+    padding-left: 30px;
+    display: flex;
+    line-height: 20px;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: url("../img/ico/calendar.svg") center no-repeat;
+      background-size: contain;
+      display: flex;
+    }
+  }
+
+  &__content{
+
+    h2{
+      color: $darkgrey;
+      font-size: 30px;
+    }
+
+    h3{
+      font-size: 18px;
+      line-height: 30px;
+      color: $darkgrey;
+      padding-left: 25px;
+      border-left: 2px solid $green;
+      margin-bottom: 40px;
+
+      @include for-1600{
+        margin-bottom: 20px;
+      }
+
+      @include for-1100{
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    p{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 30px;
+      color: $darkgrey;
+      margin: 0;
+      margin-bottom: 40px;
+
+      @include for-1600{
+        margin-bottom: 20px;
+      }
+
+      @include for-1100{
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__footnote{
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    padding-left: 55px;
+    max-width: 580px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    color: $darkgrey;
+
+    @include for-1600{
+      margin-bottom: 25px;
+    }
+    @include for-1100{
+      line-height: 22px;
+    }
+
+    &:before{
+      content: '';
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: $green;
+      position: absolute;
+    }
+
+  }
+
+  &__img{
+    margin-bottom: 100px;
+
+    @include for-1600{
+      margin-bottom: 35px;
+    }
+  }
+
+  &__img-wrap{
+    height: 500px;
+    width: 100%;
+
+    @include for-1100{
+      height: 360px;
+    }
+  }
+
+  &__img-i{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bottom-link{
+    display: flex;
+    flex-direction: column;
+    min-width: 170px;
+
+    @include for-1100{
+      min-width: auto;
+      width: fit-content;
+    }
+
+    &:first-child .news-item__bottom-txt{
+      //padding-left: 60px;
+      text-align: right;
+
+      &:before{
+        left: 0;
+        transform: rotate(180deg)  translateY(50%);
+      }
+    }
+
+    &:last-child .news-item__bottom-txt{
+      //padding-right: 60px;
+      text-align: left;
+
+      &:before{
+        right: 0;
+      }
+    }
+
+    &:hover .news-item__bottom-txt{
+      border-color: $green;
+    }
+  }
+
+  &__bottom-txt{
+    font-size: 18px;
+    color: $darkgrey;
+    position: relative;
+    line-height: 36px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid $darkgrey;
+    transition: .3s all;
+
+    @include for-1100{
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &:before{
+      content: '';
+      position: absolute;
+      height: 14px;
+      width: 8px;
+      background-image: url("../img/ico/arrow-right.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include for-1100{
+        height: 10px;
+        width: 6px;
+      }
+    }
+
+
+  }
+
+  &__bottom-title{
+    font-weight: 500;
+    font-size: 18px;
+    color: $darkgrey;
+    padding: 10px 0;
+
+    @include for-1100{
+      font-size: 12px;
+    }
+
+  }
+}
+
+.recomend-news{
+
+  .news__list{
+
+    @include for-1100{
+      margin-bottom: 0;
+    }
+  }
+
+  .news-block__head{
+
+    @include for-1100{
+      padding-bottom: 40px;
+    }
+  }
+
+  .news-block__content{
+    width: 100%;
+  }
+
+  .news__item{
+    width: 100%;
+  }
+}
+
+#recomended-slider{
+  position: relative;
+
+  .slick-arrow{
+    position: absolute;
+    bottom: auto;
+    top: -100px;
+    right: 0;
+    left: auto;
+    width: 20px;
+    height: 20px;
+
+    @include for-1800{
+      top: -50px;
+    }
+
+    @include for-1100{
+      top: -20px;
+    }
+
+    &:before{
+      content:'';
+      background: url("../img/ico/arrow 2.svg") center no-repeat;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-size: contain;
+    }
+
+    &.slick-prev{
+      right: 115px;
+    }
+
+    &.slick-next{
+      right: 15px;
+
+      &:before{
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .slick-dots{
+    position: absolute;
+    bottom: auto;
+    top: -110px;
+    left: auto;
+    right: 60px;
+    width: fit-content;
+
+    @include for-1800{
+      top: -60px;
+    }
+
+    @include for-1100{
+      top: -30px;
+    }
+
+    li{
+      display: none;
+    }
+
+    li.slick-active{
+      display: inline-block;
+    }
+
+    .dot{
+      color: $darkgrey;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}
+
+#news-item-slider{
+  .slick-arrow{
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(209, 209, 209, 0.67);
+    border-radius: 50%;
+
+    &:before{
+      content:'';
+      background: url("../img/ico/arrow-right.svg") center no-repeat;
+      transform: rotate(180deg);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-size: 8px;
+    }
+
+    &.slick-prev{
+      left: 20px;
+      right: auto;
+    }
+
+    &.slick-next{
+
+      &:before{
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.subscribe{
+  background: $darkgrey;
+  width: 50%;
+  border-bottom: 2px solid white;
+  display: flex;
+  justify-content: center;
+
+  @include for-1100{
+    width: 100%;
+  }
+
+  &__inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 160px 0;
+
+    @include for-1100{
+      padding: 70px 0;
+    }
+  }
+
+  &__content{
+
+    @include for-1100{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__title{
+    color: white;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    @include for-768{
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+
+  &__txt{
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 300px;
+    color: white;
+    opacity: .5;
+
+    @include for-1100{
+      text-align: center;
+    }
+  }
+
+  &__form{
+    max-width: 460px;
+    width: 100%;
+  }
+
+  &__btn{
+    padding-top: 70px;
+
+    @include for-1100{
+      justify-content: center;
+      display: flex;
+    }
+  }
+
+  &__btn-i{
+
+  }
+}
+
+.subscribe-img{
+  width: 50%;
+  border-bottom: 2px solid white;
+
+  @include for-1100{
+    display: none;
+  }
+
+  &--i{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.about-info{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  background: $darkgrey;
+  min-height: 100vh;
+
+  @include for-1800{
+    min-height: auto;
+  }
+
+  @include for-1100{
+    width: 100%;
+  }
+
+  &__inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 70px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &__content{
+    padding: 130px 50px 200px;
+    box-sizing: border-box;
+    width: 100%;
+
+
+    @include for-1600{
+      padding: 70px 20px 50px;
+    }
+
+    @include for-1100{
+      padding: 75px 0 50px;
+    }
+
+    span{
+      color: $green;
+      font-size: 22px;
+      margin-bottom: 60px;
+    }
+
+    h3{
+      margin-bottom: 75px;
+      font-size: 30px;
+      color: white;
+    }
+
+    p{
+      font-weight: 400;
+      font-size: 18px;
+      color: white;
+      margin: 0;
+      margin-bottom: 15px;
+    }
+
+    strong{
+      color: #ffffff;
+    }
+
+  }
+}
+
+.about-numbers{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  @include for-1100{
+    width: 100%;
+  }
+
+  .double-block__item{
+    height: 100%;
+  }
+
+  &__inner{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__content{
+    padding: 130px 0 200px;
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
+
+    @include for-1600{
+      padding: 70px 50px;
+    }
+
+    @include for-1100{
+      padding: 25px 0;
+    }
+  }
+
+  &__row{
+    display: flex;
+    margin: 15px 0;
+    align-items: center;
+  }
+
+  &__num{
+    width: 35%;
+    color: #828282;
+    font-size: 56px;
+
+    @include for-1100{
+      min-width: 100px;
+    }
+
+    @include for-768{
+      font-size: 40px;
+      min-width: 100px;
+    }
+  }
+
+  &__name{
+    width: 65%;
+    display: flex;
+    font-size: 20px;
+    line-height: 26px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-left: 2px solid $green;
+
+    @include for-1100{
+      font-size: 16px;
+      padding-left: 20px;
+    }
+  }
+
+}
+
+
+.video-block{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 100vh;
+
+  @include for-1100{
+    width: 100%;
+  }
+
+  @include for-1800{
+    min-height: auto;
+  }
+
+  .double-block__item{
+    width: calc(800px - 25%);
+
+    @include for-1100{
+      width: 100%;
+    }
+  }
+
+  &__inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 0 100px;
+    box-sizing: border-box;
+
+    @include for-1100{
+      padding: 40px 0 50px;
+    }
+  }
+
+  &__content{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 50px;
+
+    @include for-1100{
+      padding: 25px 0;
+    }
+  }
+
+  &__txt{
+    max-width: 450px;
+    font-size: 18px;
+    color: $darkgrey;
+    line-height: 30px;
+
+    @include for-1100{
+      max-width: 100% ;
+    }
+  }
+
+}
+
+.video-block-item{
+  width: 60%;
+
+  @include for-1100{
+    width: 100%;
+  }
+
+  &__inner{
+    height: 100vh;
+
+    @include for-1800{
+      min-height: 992px;
+      height: 100%;
+    }
+
+    @include for-1600{
+      min-height: 768px;
+    }
+
+    @include for-1100{
+      height: 500px;
+    }
+
+    @include for-992{
+      height: 360px;
+    }
+  }
+
+  &__i{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &:before{
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: black;
+      opacity: 0.302;
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: url("../img/ico/play-button.svg") center no-repeat;
+      background-size: 100px;
+      transition: .3s all;
+    }
+
+    &:hover{
+
+      &:after{
+        transform: translate(-50%, -50%) scale(.9);
+      }
+
+    }
+  }
+}
+
+.about-video-popup{
+
+  .popup__inner {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .popup__close{
+    top: -40px;
+    right: 0;
+  }
+
+  iframe{
+    width: 100%;
+    height: 500px;
+  }
+}
+
+
+
+
+.btn-block{
+
+  background: $darkgrey;
+
+  &__inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 115px 0;
+    box-sizing: border-box;
+
+    @include for-1100{
+      padding: 50px 15px;
+    }
+  }
+
+  &__list{
+    display: flex;
+    margin: 0 -15px;
+
+    @include for-992{
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include for-992{
+      margin-bottom: 30px;
+    }
+  }
+
+  &__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  &__img-i{
+    width: 100%;
+  }
+
+  &__btn-i{
+
+    @include for-768{
+      padding: 12px 11px 15px;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 
 .footer{
   display: flex;
@@ -2998,6 +4118,11 @@ input, textarea, button{
     padding-bottom: 45px;
     display: flex;
     justify-content: center;
+
+    @include for-768{
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
   }
 
   &__content{
@@ -3422,6 +4547,7 @@ input, textarea, button{
     &:hover{
       opacity: .7;
     }
+
   }
 
   &__close-ico{
@@ -3430,6 +4556,10 @@ input, textarea, button{
     height: 100%;
     background: url("../img/ico/cancel.svg") center no-repeat;
     background-size: contain;
+
+    &--revers{
+      filter: invert(1);
+    }
   }
 
   &__content{
