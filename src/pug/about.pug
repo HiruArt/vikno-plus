@@ -32,18 +32,18 @@ block content
 					.about-numbers
 						.double-block__item
 							.about-numbers__inner
-								.about-numbers__content
+								.about-numbers__content#about-num-count
 									.about-numbers__row
-										.about-numbers__num 23+
+										.about-numbers__num 23
 										.about-numbers__name Років досвіду
 									.about-numbers__row
 										.about-numbers__num 300
 										.about-numbers__name Робочих місць на виробництві
 									.about-numbers__row
-										.about-numbers__num 152+
+										.about-numbers__num 152
 										.about-numbers__name Віконних салонів працює по Украіні
 									.about-numbers__row
-										.about-numbers__num 500+
+										.about-numbers__num 500
 										.about-numbers__name Виробів на добу
 									.about-numbers__row
 										.about-numbers__num 1526
@@ -66,8 +66,9 @@ block content
 
 				.video-block-item
 					.video-block-item__inner
-						a(href="javascript:void(0);" style="background-image: url('../img/about/video-bg.png');" data-modal-class="about-video-popup").video-block-item__i
-
+						//a(href="javascript:void(0);" style="background-image: url('../img/about/video-bg.png');" data-modal-class="about-video-popup").video-block-item__i
+						video(width='100%' height='auto' poster="./img/about/video-bg-1.png" controls).video-block-item__i#about-video
+							source(src='./media/video-vikna-plus.mp4', type='video/mp4')
 		section
 			.btn-block
 				.btn-block__inner
